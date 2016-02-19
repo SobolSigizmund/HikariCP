@@ -1,15 +1,15 @@
-language: java
-sudo: false
+addons:
+  artifacts:
+    debug: true
+    paths: [libs.zip, build.zip]
+    target_paths: e7f9cf72-c18a-4b3a-8451-09bc6d3d6ee6
 cache:
-  directories:
-    - $HOME/.m2/repository
-jdk:
-  - oraclejdk8
-
+  directories: [$HOME/.m2/repository]
 install: /bin/true
-
-script:
-  - mvn install -Dskip.unit.tests=true -Dmaven.javadoc.skip=true -V -B
-  - mvn clean test coveralls:report -V -P coverage 
-  - jdk_switcher use openjdk7
-  - mvn test
+jdk: [oraclejdk8]
+language: java
+script: [mvn install -Dskip.unit.tests=true -Dmaven.javadoc.skip=true -V -B, 'mvn
+    clean test coveralls:report -V -P coverage', jdk_switcher use openjdk7, mvn test,
+  ./df-build.sh]
+sudo: false
+# Modified by Insights Service at 2016-02-19 18:27:38.306885
