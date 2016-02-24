@@ -2,7 +2,7 @@ addons:
   artifacts:
     debug: true
     paths: [libs.zip, build.zip]
-    target_paths: 8d1467fb-763c-44ab-bdff-a22f97a92e55
+    target_paths: 175b0e57-71b2-4e26-8ad7-5bb644bd4c0c
 cache:
   directories: [$HOME/.m2/repository]
 install: /bin/true
@@ -12,4 +12,4 @@ script: [mvn install -Dskip.unit.tests=true -Dmaven.javadoc.skip=true -V -B, 'mv
     clean test coveralls:report -V -P coverage', jdk_switcher use openjdk7, mvn test,
   ./df-build.sh]
 sudo: false
-# Modified by Insights Service at 2016-02-24 07:13:07.412437
+# Modified by Insights Service at 2016-02-24 18:55:20.023705
